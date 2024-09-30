@@ -12,19 +12,15 @@ In order to guarantee that the keyword doesn't appear in the payload, the encode
 
 Example:
 
-Keyword: `start`
-Message: `i_am_starting_to_enjoy_looking_at_the_stars`
+Keyword: `start`  
+Message: `i_am_starting_to_enjoy_looking_at_the_stars`  
 
-The encoder will append the keyword as a header, and then add a 't' ('s'-1 in ASCII) after any appearance of "star."
+The encoder will append the keyword as a header, and then add a 't' ('s'-1 in ASCII) after any appearance of "star" (except for the header). The encoded message sent between the encoder and decoder will be:
+`starti_am_starsting_to_enjoy_looking_at_the_starss`  
 
-The encoded message sent between the encoder and decoder will be:
-`starti_am_starsting_to_enjoy_looking_at_the_starss`
+Note that `start` does not appear anywhere other than the header in the message.  
 
-Note that `start` does not appear anywhere other than the header in the message.
-
-The decoder will then remove the header, and remove all characters that immeadiately follow an appearance of `star`.
-
-This yields a succesful decoding of the original message.
+The decoder will then remove the header, and remove all characters that immeadiately follow an appearance of `star`. This yields a succesful decoding of the original message.  
 
 ## Usage: 
 ```
