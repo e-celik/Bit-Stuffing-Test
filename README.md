@@ -8,7 +8,7 @@ Note: Don't include spaces in your inputs, it will only take the first word, and
 
 ## Explanation
 
-In order to guarantee that the keyword doesn't appear in the payload, the encoder adds an extra symbol after any n-1 prefix of the keyword taht may appear in the payload. The decoder removes this symbol, and the original message is completely preserved. 
+In order to guarantee that the keyword doesn't appear in the payload, the encoder adds an extra symbol after any n-1 prefix of the keyword that may appear in the payload. The decoder removes this symbol, and the original message is completely preserved. 
 
 Example:
 
