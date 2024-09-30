@@ -1,50 +1,59 @@
+#include <iostream>
+#include <string>
+#include <cstring>
+#include <sstream>
+
 using namespace std;
 
-#include "iostream"
+// Define startToken globally
+const string startToken = "start";
 
 int main()
 {
-    char startToken[] = "start";
     int s = 0;
+    string inputData = {'\0'};
+    cin >> inputData; 
 
-    char inputData[1024] = {'\0'};
-    cin >> inputData;
-
-    if (inputData[0] == 's' &&
-        inputData[1] == 't' &&
-        inputData[2] == 'a' &&
-        inputData[3] == 'r' &&
-        inputData[4] == 't')
-    { }
+    // Check if the inputData starts with startToken
+    if (strncmp(inputData.c_str(), startToken.c_str(), startToken.length()) == 0)
+    {
+        // Input starts with startToken
+    }
     else
     {
         cout << "Missing Start Token\n";
-        return 1;
+        return 0;
     }
 
-    int j = 5;
+    int j = startToken.length(); // Start checking after "start token"
 
     while (inputData[j])
     {
-        if (s == 4)
+        if (s == startToken.length()-1)
         {
-            s = 0;
+            s = 0; // Reset s if it reaches length of string-1
         }
         else
         {
-            cout << inputData[j];
+            cout << inputData[j]; // Print the current character
         }
 
         if (inputData[j] == startToken[s])
         {
-            s++;
+            s++; // Move to the next character in startToken if the current one matches
         }
         else
         {
-            s = inputData[j] == startToken[0];
+            s = (inputData[j] == startToken[0]); // If no match, reset s. If the current character is the beginning of startToken, then set it to 1
         }
 
         j++;
-
     }
+
+    if (inputData.substr(startToken.length()).find(startToken) != string::npos)
+    {
+        cout << "\nError: Start Token appears in payload of Link Level message!";
+    }
+
+    return 0;
 }

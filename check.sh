@@ -1,6 +1,10 @@
 #!/bin/bash
 
-# Note: made with chatgpt
+# Note: made with help from chatgpt
+
+# Compile
+g++ encode.cpp -o encode
+g++ decode.cpp -o decode
 
 # Check for the correct number of arguments
 if [ "$#" -ne 1 ]; then
@@ -26,5 +30,6 @@ if [ "$MESSAGE" == "$FINAL_OUTPUT" ]; then
 else
     echo "Failure."
     echo "Initial message: $MESSAGE"
+    echo "Link Level message: $MIDDLE"
     echo "Final output: $FINAL_OUTPUT"
 fi

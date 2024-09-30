@@ -1,42 +1,43 @@
+#include <iostream>
+#include <string>
+
 using namespace std;
 
-#include "iostream"
+// Define startToken globally
+const string startToken = "start";
+const char stuffing = startToken[startToken.length()-1]-1;
 
 int main()
 {
-    char startToken[] = "start";
-
     int s = 0;
-
     char inputData[256] = {'\0'};
 
     cin >> inputData;
 
     int j = 0;
 
-    cout << "start";
+    cout << startToken; // Output "start"
 
     while (inputData[j])
     {
-        if (s == 4)
+        if (s == startToken.length()-1)
         {
-            cout << 'r';
-            s = 0;
+            cout << stuffing; // Print 'r' when s reaches length of string-1
+            s = 0; // Reset s to 0
         }
 
         if (inputData[j] == startToken[s])
         {
-            s++;
+            s++; // Move to the next character in startToken
         }
         else
         {
-            s = inputData[j] == startToken[0];
+            s = (inputData[j] == startToken[0]); // Reset s if input doesn't match
         }
 
-        cout << inputData[j];
+        cout << inputData[j]; // Output the current character from inputData
 
         j++;
-
     }
 
     return 0;
