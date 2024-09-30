@@ -1,4 +1,4 @@
-Small experiment for topic discussed in Networks Class.
+Small experiment for topic discussed in Networks class.
 
 This is a simple analog of bitstuffing (character stuffing in this example) in order to allow for variable length encoding using a keyword in a header that must not appear elsewhere in the payload.
 
